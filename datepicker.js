@@ -1,6 +1,6 @@
-require('jquery-datetimepicker');
-require('jquery-datetimepicker/jquery.datetimepicker.css');
 module.exports = function(app){
+    require('jquery-datetimepicker');
+    require('jquery-datetimepicker/jquery.datetimepicker.css');
     var Datepicker = Object.getPrototypeOf(app).Datepicker = new app.Component("datepicker");
     //Datepicker.debug = true;
     Datepicker.createdAt      = "2.0.0";
