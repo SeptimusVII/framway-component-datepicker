@@ -27,6 +27,7 @@ module.exports = function(app){
         datepicker.startDate  = (datepicker.startDate !== undefined)  ? datepicker.startDate  : datepicker.getData('startdate', false);
         datepicker.mask       = (datepicker.mask !== undefined)       ? datepicker.mask       : datepicker.getData('mask', false);
         datepicker.reset      = (datepicker.reset !== undefined)      ? datepicker.reset      : datepicker.getData('reset', false);
+        datepicker.readonly   = (datepicker.readonly !== undefined)   ? datepicker.readonly   : datepicker.getData('readonly', true);
 
         datepicker.formatDate = (datepicker.formatDate !== undefined) ? datepicker.formatDate : datepicker.getData('formatdate', Datepicker.dateFormat[lang]);
         if (datepicker.timepicker) {
@@ -36,8 +37,7 @@ module.exports = function(app){
             datepicker.format = datepicker.formatDate;
         }
 
-        datepicker.$el.attr('readonly',true);
-
+        datepicker.$el.attr('readonly',datepicker.readonly);
         if (datepicker.reset) {
             var $wrapper = $('<div class="input--group"></div>').insertAfter(datepicker.$el);
             var $reset = $('<button class="btn-sm"><i class="fal fa-times"></i></button>');
