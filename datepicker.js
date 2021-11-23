@@ -39,8 +39,8 @@ module.exports = function(app){
 
         datepicker.$el.attr('readonly',datepicker.readonly);
         if (datepicker.reset) {
-            var $wrapper = $('<div class="input--group"></div>').insertAfter(datepicker.$el);
-            var $reset = $('<button class="btn-sm"><i class="fal fa-times"></i></button>');
+            var $wrapper = $('<div class="input-group form-shrink"></div>').insertAfter(datepicker.$el);
+            var $reset = $('<button class="btn-sm"><i class="fa fa-times"></i></button>');
             $wrapper.append(datepicker.$el);
             $wrapper.append($reset);
 
