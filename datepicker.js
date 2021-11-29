@@ -80,7 +80,16 @@ module.exports = function(app){
         if(datepicker.startDate)
             datepicker.$el.val(datepicker.startDate);
 
-        datepicker.$el.on('change keyup', updateTstamp);
+        datepicker.$el.on('change keyup', function(){
+            updateTstamp();
+            if (this.getAttribute('required') !== null) {
+                datepicker.$el.removeClass('invalid valid');
+                if (this.value.length == 0)
+                    datepicker.$el.addClass('invalid');
+                else
+                    datepicker.$el.addClass('valid');
+            }
+        });
         datepicker.$el.datetimepicker('validate');
 
         if(Datepicker.debug) datepicker.log('Datepicker has been created');
