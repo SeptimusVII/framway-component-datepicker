@@ -49,13 +49,6 @@ module.exports = function(app){
             });
         }
 
-        var updateTstamp = function(){
-            if(datepicker.$el.datetimepicker('getValue') != null && datepicker.$el.val() != '')
-                datepicker.$el.attr('data-tstamp', Date.parse(datepicker.$el.datetimepicker('getValue'))/1000);
-            else
-                datepicker.$el.attr('data-tstamp', '');
-        }
-
         var objConfig = {
             timepicker: datepicker.timepicker,
             datepicker: datepicker.datepicker ,
@@ -81,7 +74,7 @@ module.exports = function(app){
             datepicker.$el.val(datepicker.startDate);
 
         datepicker.$el.on('change keyup', function(){
-            updateTstamp();
+            datepicker.updateTstamp();
             if (this.getAttribute('required') !== null) {
                 datepicker.$el.removeClass('invalid valid');
                 if (this.value.length == 0)
@@ -95,6 +88,13 @@ module.exports = function(app){
         if(Datepicker.debug) datepicker.log('Datepicker has been created');
     }
 
+    Datepicker.prototype.updateTstamp = function(){
+        var datepicker = this;
+        if(datepicker.$el.datetimepicker('getValue') != null && datepicker.$el.val() != '')
+            datepicker.$el.attr('data-tstamp', Date.parse(datepicker.$el.datetimepicker('getValue'))/1000);
+        else
+            datepicker.$el.attr('data-tstamp', '');
+    }
     Datepicker.prototype.onDestroy = function(){
         var datepicker = this;
         if(Datepicker.debug) datepicker.log('Datepicker has been destroyed');
