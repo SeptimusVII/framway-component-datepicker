@@ -4,8 +4,8 @@ module.exports = function(app){
     var Datepicker = Object.getPrototypeOf(app).Datepicker = new app.Component("datepicker");
     //Datepicker.debug = true;
     Datepicker.createdAt      = "2.0.0";
-    Datepicker.lastUpdate     = "2.0.0";
-    Datepicker.version        = "1.0.1";
+    Datepicker.lastUpdate     = "2.4.3";
+    Datepicker.version        = "1.0.2";
     // Datepicker.factoryExclude = true;
     // Datepicker.loadingMsg     = "This message will display in the console when component will be loaded.";
     // Datepicker.requires       = [];
@@ -40,7 +40,7 @@ module.exports = function(app){
         datepicker.$el.attr('readonly',datepicker.readonly);
         if (datepicker.reset) {
             var $wrapper = $('<div class="input-group form-shrink"></div>').insertAfter(datepicker.$el);
-            var $reset = $('<button class="btn-sm"><i class="fa fa-times"></i></button>');
+            var $reset = $('<button class="btn-sm squared"><i class="fa fa-times"></i></button>');
             $wrapper.append(datepicker.$el);
             $wrapper.append($reset);
 
