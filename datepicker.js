@@ -4,8 +4,8 @@ module.exports = function(app){
     var Datepicker = Object.getPrototypeOf(app).Datepicker = new app.Component("datepicker");
     //Datepicker.debug = true;
     Datepicker.createdAt      = "2.0.0";
-    Datepicker.lastUpdate     = "2.4.3";
-    Datepicker.version        = "1.0.2";
+    Datepicker.lastUpdate     = "2.6.0";
+    Datepicker.version        = "1.0.3";
     // Datepicker.factoryExclude = true;
     // Datepicker.loadingMsg     = "This message will display in the console when component will be loaded.";
     // Datepicker.requires       = [];
@@ -73,7 +73,7 @@ module.exports = function(app){
         if(datepicker.startDate)
             datepicker.$el.val(datepicker.startDate);
 
-        datepicker.$el.on('change keyup', function(){
+        datepicker.$el.on('change keyup blur', function(){
             datepicker.updateTstamp();
             if (this.getAttribute('required') !== null) {
                 datepicker.$el.removeClass('invalid valid');
